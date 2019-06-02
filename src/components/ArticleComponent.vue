@@ -6,6 +6,9 @@
 
 <script>
 export default {
-    name:'ArticleComponent'
+    name:'ArticleComponent',
+    created() {
+        
+    },
 }
 </script>
