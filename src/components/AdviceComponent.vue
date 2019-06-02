@@ -1,11 +1,11 @@
 <template>
     <div>
-        我是HomeComponent
+        我是AdviceComponent
     </div>
 </template>
 
 <script>
 export default {
-    name:'HomeComponent'
+    name:'AdviceComponent'
 }
 </script>
