@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <div class="menuleft">
-      <Menu></Menu>
+    <div class="menuleft" >
+      <Menu @sideitemclick="sideitemclick">
+
+      </Menu>
     </div>
     <div class="contentright">
-      <MenuContent></MenuContent>
+      <MenuContent>
+
+      </MenuContent>
     </div>
     
   </div>
@@ -18,7 +22,22 @@ export default {
   components:{
     Menu,
     MenuContent
-  }
+  },
+  methods: {
+    sideitemclick(itemindex){
+      console.log(itemindex)
+      this.$router.replace('/article')
+      switch (itemindex) {
+        case 0:
+          this.$router.replace('/')
+          break;
+        case 1:
+          this.$router.replace('/')
+        default:
+          break;
+      }
+    }
+  },
 }
 
 </script>

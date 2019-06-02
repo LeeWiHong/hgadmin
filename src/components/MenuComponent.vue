@@ -29,7 +29,8 @@ export default {
     },
     methods: {
         routertocomponent(itemindex){
-            console.log(itemindex)
+            console.log(itemindex+'ffdfadfff')
+            this.$emit('sideitemclick',itemindex)
         }
     },
 }
