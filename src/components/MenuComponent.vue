@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(item, index) in itemnames" :key="index">
-            <MenuSideItem :itemname = 'item.itemname' :itemindex='index'></MenuSideItem>
+            <MenuSideItem :itemname = 'item.itemname' :itemindex='index' @routertocomponent= "routertocomponent"></MenuSideItem>
         </div>
        
     </div>
@@ -25,6 +25,11 @@ export default {
                 {itemname:'平台管理'},
                 {itemname:'建议管理'},
             ]
+        }
+    },
+    methods: {
+        routertocomponent(itemindex){
+            console.log(itemindex)
         }
     },
 }

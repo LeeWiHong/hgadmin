@@ -3,17 +3,21 @@
     <div class="menuleft">
       <Menu></Menu>
     </div>
-    <div class="contentright"></div>
-    <router-view/>
+    <div class="contentright">
+      <MenuContent></MenuContent>
+    </div>
+    
   </div>
 </template>
 
 <script>
 import Menu from '../src/components/MenuComponent'
+import MenuContent from '../src/components/ContentComponent'
 export default {
   name: 'App',
   components:{
-    Menu
+    Menu,
+    MenuContent
   }
 }
 

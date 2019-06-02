@@ -7,6 +7,6 @@
 
 <script>
 export default {
-    name:'ContentComponent'
+    name:'MenuContent'
 }
 </script>
