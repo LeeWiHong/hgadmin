@@ -11,7 +11,8 @@ export default {
     props:['itemname','itemindex'],
     methods: {
         sideclick(itemindex){
-            console.log(itemindex)
+            console.log(itemindex);
+            this.$router.replace('/article')
         }
     },
 }
