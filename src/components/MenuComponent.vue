@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(item, index) in itemnames" :key="index">
-            <MenuSideItem :itemname = 'item'></MenuSideItem>
+            <MenuSideItem :itemname = 'item.itemname' :itemindex='index'></MenuSideItem>
         </div>
        
     </div>
@@ -17,7 +17,14 @@ export default {
     },
     data() {
         return {
-            itemnames:['主页管理','用户管理','文章管理','分类管理','平台管理','建议管理']
+            itemnames:[
+                {itemname:'主页管理'},
+                {itemname:'用户管理'},
+                {itemname:'文章管理'},
+                {itemname:'分类管理'},
+                {itemname:'平台管理'},
+                {itemname:'建议管理'},
+            ]
         }
     },
 }

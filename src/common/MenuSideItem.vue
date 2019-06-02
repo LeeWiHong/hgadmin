@@ -1,13 +1,19 @@
 <template>
     <div class="menuside">
-        <a >{{itemname}}</a>
+        <!-- <a >{{itemname}}</a> -->
+        <a-button type="primary" @click="sideclick(itemindex)">{{itemname}}--{{itemindex}}</a-button>
     </div>
 </template>
 
 <script>
 export default {
     name:'MenuSideItem',
-    props:['itemname']
+    props:['itemname','itemindex'],
+    methods: {
+        sideclick(itemindex){
+            console.log(itemindex)
+        }
+    },
 }
 </script>
 
