@@ -26,13 +26,26 @@ export default {
   methods: {
     sideitemclick(itemindex){
       console.log(itemindex)
-      this.$router.replace('/article')
       switch (itemindex) {
         case 0:
           this.$router.replace('/')
           break;
         case 1:
-          this.$router.replace('/')
+          this.$router.replace('/user')
+          break;
+        case 2:
+          this.$router.replace('/article')
+          break;
+        case 3:
+          this.$router.replace('/category')
+          break;
+        case 4:
+          this.$router.replace('/platform')
+          break;
+        case 5:
+          this.$router.replace('/advice')
+          break;
+
         default:
           break;
       }
