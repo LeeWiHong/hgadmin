@@ -1,6 +1,5 @@
 <template>
     <div>
-        我是CategoryComponent
         <CategoryItem></CategoryItem>
     </div>
 </template>
