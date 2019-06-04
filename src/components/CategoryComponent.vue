@@ -1,12 +1,18 @@
 <template>
     <div>
         我是CategoryComponent
+        <CategoryItem></CategoryItem>
     </div>
 </template>
 
 <script>
+import CategoryItem from '../common/CategoryItem'
+
 export default {
     name:'CategoryComponent',
+    components:{
+        CategoryItem
+    },
     data() {
         return {
             data:[]
