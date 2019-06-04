@@ -1,14 +1,20 @@
 <template>
     <div class="menuside">
         <!-- <a >{{itemname}}</a> -->
-        <a-button type="primary" @click="sideclick(itemindex)">{{itemname}}--{{itemindex}}</a-button>
+        <button type="primary" @click="sideclick(itemindex)">{{itemname}}--{{itemindex}}</button>
     </div>
 </template>
 
 <script>
+
+import { Button } from 'ant-design-vue';
+
 export default {
     name:'MenuSideItem',
     props:['itemname','itemindex'],
+    components:{
+        Button
+    },
     methods: {
         sideclick(itemindex){
             this.$emit('routertocomponent',itemindex)
