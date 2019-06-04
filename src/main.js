@@ -7,8 +7,11 @@ import  '../src/style/index.css'
 
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
+import axios from 'axios'
 
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
+axios.defaults.headers.post['Content-type'] = "application/json"
 
 /* eslint-disable no-new */
 new Vue({
