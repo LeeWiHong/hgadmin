@@ -9,33 +9,24 @@
   </a-list>
 </template>
 <script>
-const data = [
-  {
-    title: '用户总数',
-    number:20
-  },
-  {
-    title: '文章总数',
-    number:40
-  },
-  {
-    title: '分类总数',
-    number:50
-  },
-  {
-    title: '平台总数',
-    number:60
-  },
-  {
-    title: '建议总数',
-    number:90
-  }
-]
+
 export default {
   data () {
     return {
-      data,
+      data:{}
     }
+  },
+  methods: {
+    getsummarydata(){
+      this.$http.get('api/allsummary').then(response =>{
+            this.data = response.data.data
+           }).catch(error =>{
+               console.log(error)
+           })
+    }
+  },
+  mounted() {
+    this.getsummarydata()
   },
 }
 </script>
