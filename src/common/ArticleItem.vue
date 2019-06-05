@@ -9,23 +9,29 @@
 </template>
 <script>
 const columns = [{
-  title:'平台ID',
-  dataIndex: 'platformId',
-  key: 'platformId',
+  title:'文章ID',
+  dataIndex: 'articleId',
+  key: 'articleId',
 }, {
-  title: '凭他名称',
-  dataIndex: 'platformName',
-  key: 'platformName',
+  title: '文章标题',
+  dataIndex: 'articleTitle',
+  key: 'articleTitle',
 }, {
-  title: '平台链接',
-  dataIndex: 'platformLink',
-  key: 'platformLink',
+  title: '文章链接',
+  dataIndex: 'articleLink',
+  key: 'articleLink',
 }, 
 {
-  title: '平台描述',
-  dataIndex: 'platformDescript',
-  key: 'platformDescript',
+  title: '文章分类',
+  dataIndex: 'articleCategory',
+  key: 'articleCategory',
 }, 
+{
+  title: '文章封面',
+  dataIndex: 'articleImage',
+  key: 'articleImage',
+},
+
 {
   title: '操作',
   key: 'action',
@@ -41,8 +47,8 @@ export default {
   },
   methods: {
     getdata(){
-           this.$http.get('api/allplatform').then(response =>{
-            this.data = response.data.data
+           this.$http.get('api/indexarticle',{params:{pageno:1,pagesize:100}}).then(response =>{
+            this.data = response.data.data.list
            }).catch(error =>{
                console.log(error)
            })

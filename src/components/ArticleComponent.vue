@@ -1,12 +1,18 @@
 <template>
     <div>
-        我是ArticleComponent
+        <ArticleItem></ArticleItem>
     </div>
 </template>
 
 <script>
+
+import ArticleItem from '../common/ArticleItem'
+
 export default {
     name:'ArticleComponent',
+    components:{
+        ArticleItem
+    },
     data() {
         return {
             data:[]
