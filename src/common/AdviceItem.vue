@@ -1,30 +1,28 @@
 <template>
   <a-table :columns="columns" :dataSource="data">
     <span slot="action" slot-scope="text, record">
-      <a href="javascript:;">修改</a>
-      <a-divider type="vertical" />
       <a href="javascript:;">删除</a>
     </span>
   </a-table>
 </template>
 <script>
 const columns = [{
-  title:'平台ID',
-  dataIndex: 'platformId',
-  key: 'platformId',
+  title:'建议ID',
+  dataIndex: 'adviceId',
+  key: 'adviceId',
 }, {
-  title: '平台名称',
-  dataIndex: 'platformName',
-  key: 'platformName',
+  title: '建议标题',
+  dataIndex: 'adviceTitle',
+  key: 'adviceTitle',
 }, {
-  title: '平台链接',
-  dataIndex: 'platformLink',
-  key: 'platformLink',
+  title: '建议内容',
+  dataIndex: 'adviceBody',
+  key: 'adviceBody',
 }, 
 {
-  title: '平台描述',
-  dataIndex: 'platformDescript',
-  key: 'platformDescript',
+  title: '联系人',
+  dataIndex: 'adviceTelephone',
+  key: 'adviceTelephone',
 }, 
 {
   title: '操作',
@@ -32,7 +30,7 @@ const columns = [{
   scopedSlots: { customRender: 'action' },
 }];
 export default {
-    name:'PlatformItem',
+    name:'AdviceItem',
     data() {
     return {
       data:{},
@@ -41,8 +39,8 @@ export default {
   },
   methods: {
     getdata(){
-           this.$http.get('api/allplatform').then(response =>{
-            this.data = response.data.data
+           this.$http.get('api/alladvice').then(response =>{
+            this.data = response.data.data.list
            }).catch(error =>{
                console.log(error)
            })

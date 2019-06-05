@@ -13,7 +13,7 @@ const columns = [{
   dataIndex: 'platformId',
   key: 'platformId',
 }, {
-  title: '平台名称',
+  title: '凭他名称',
   dataIndex: 'platformName',
   key: 'platformName',
 }, {
@@ -32,7 +32,7 @@ const columns = [{
   scopedSlots: { customRender: 'action' },
 }];
 export default {
-    name:'PlatformItem',
+    name:'CategoryItem',
     data() {
     return {
       data:{},

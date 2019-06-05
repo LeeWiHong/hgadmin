@@ -1,11 +1,15 @@
 <template>
     <div>
-        我是AdviceComponent
+        <AdviceItem></AdviceItem>
     </div>
 </template>
 
 <script>
+import AdviceItem from '../common/AdviceItem'
 export default {
-    name:'AdviceComponent'
+    name:'AdviceComponent',
+    components:{
+        AdviceItem
+    }
 }
 </script>
