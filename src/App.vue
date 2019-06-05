@@ -33,6 +33,10 @@
           <a-icon type="mail" />
           <span class="nav-text">建议管理</span>
         </a-menu-item>
+        <a-menu-item key="7" @click="sideitemclick(6)">
+          <a-icon type="edit" />
+          <span class="nav-text">发布文章</span>
+        </a-menu-item>
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -78,6 +82,9 @@ export default {
         case 5:
           this.$router.replace('/advice')
           break;
+        case 6:
+            this.$router.replace('/publish')
+            break;
 
         default:
           break;
