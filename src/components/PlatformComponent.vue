@@ -1,11 +1,15 @@
 <template>
     <div>
-        我是PlatformComponent
+        <PlatformItem></PlatformItem>
     </div>
 </template>
 
 <script>
+import PlatformItem from '../common/PlatformItem'
 export default {
-    name:'PlatformComponent'
+    name:'PlatformComponent',
+    components:{
+        PlatformItem
+    }
 }
 </script>
