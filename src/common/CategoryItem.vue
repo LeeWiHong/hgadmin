@@ -6,16 +6,12 @@
     <span slot="tags" slot-scope="tags">
       <a-tag v-for="tag in tags" color="blue" :key="tag">{{tag}}</a-tag>
     </span>
-    <span slot="action" slot-scope="text, record">
-      <a href="javascript:;">Invite 一 {{record.name}}</a>
-      <a-divider type="vertical" />
-      <a href="javascript:;">Delete</a>
-      <a-divider type="vertical" />
-      <a href="javascript:;" class="ant-dropdown-link">
-        More actions <a-icon type="down" />
-      </a>
-    </span>
     -->
+    <span slot="action" slot-scope="text, record">
+      <a href="javascript:;">修改</a>
+      <a-divider type="vertical" />
+      <a href="javascript:;">删除</a>
+    </span>
   </a-table>
 </template>
 <script>
@@ -41,12 +37,6 @@ const columns = [{
   title: '分类描述',
   dataIndex: 'description',
   key: 'description',
-}, 
-{
-  title: 'Tags',
-  key: 'tags',
-  dataIndex: 'tags',
-  scopedSlots: { customRender: 'tags' },
 }, {
   title: '操作',
   key: 'action',
@@ -54,11 +44,103 @@ const columns = [{
 }];
 
 const data = [{
-  key: '1',
-  name: 'John Brown',
-  age: 32,
-  address: 'New York No. 1 Lake Park',
-  tags: ['nice', 'developer'],
+  categoryid: '1',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '2',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '3',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '4',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '5',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+}
+,
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
+},
+{
+  categoryid: '6',
+  categoryName: '安卓',
+  categoryImage:'/images/123.png',
+  categoryType:'2',
+  description:'安卓开发类型',
 }
 ];
 
