@@ -13,6 +13,7 @@ Vue.use(Antd)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 axios.defaults.headers.post['Content-type'] = "application/json"
+axios.defaults.baseURL = global.baseURL
 
 /* eslint-disable no-new */
 new Vue({

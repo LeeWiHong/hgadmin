@@ -30,8 +30,8 @@ export default {
     },
 
     created() {
-        console.log('我是create方法')
-        this.getdata()
+        // console.log('我是create方法')
+        // this.getdata()
     },
 
 

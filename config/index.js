@@ -13,10 +13,11 @@ module.exports = {
     proxyTable: {
       '/api':{
         target:'http://192.168.2.2:8080/',
+        logLevel:'debug',
         changeOrigin:true,
-        pathRewrite:{
-          '^/api':'/'
-        }
+        // pathRewrite:{
+        //   '^/api':''
+        // }
       }
     },
 

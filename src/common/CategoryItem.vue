@@ -1,12 +1,5 @@
 <template>
   <a-table :columns="columns" :dataSource="data">
-    <!--
-    <a slot="name" slot-scope="text" href="javascript:;">{{text}}</a>
-    <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
-    <span slot="tags" slot-scope="tags">
-      <a-tag v-for="tag in tags" color="blue" :key="tag">{{tag}}</a-tag>
-    </span>
-    -->
     <span slot="action" slot-scope="text, record">
       <a href="javascript:;">修改</a>
       <a-divider type="vertical" />
@@ -17,8 +10,8 @@
 <script>
 const columns = [{
   title:'分类ID',
-  dataIndex: 'categoryid',
-  key: 'categoryid',
+  dataIndex: 'categoryId',
+  key: 'categoryId',
 }, {
   title: '分类名称',
   dataIndex: 'categoryName',
@@ -42,116 +35,28 @@ const columns = [{
   key: 'action',
   scopedSlots: { customRender: 'action' },
 }];
-
-const data = [{
-  categoryid: '1',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '2',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '3',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '4',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '5',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-}
-,
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-},
-{
-  categoryid: '6',
-  categoryName: '安卓',
-  categoryImage:'/images/123.png',
-  categoryType:'2',
-  description:'安卓开发类型',
-}
-];
-
 export default {
-    
     name:'CategoryItem',
     data() {
     return {
-      data,
+      data:{},
       columns,
     }
-  }
+  },
+  methods: {
+    getdata(){
+           this.$http.get('api/allcategory').then(response =>{
+            this.data = response.data.data
+           }).catch(error =>{
+               console.log(error)
+           })
+       } 
+  },
+  created() {
+    
+  },
+  mounted() {
+    this.getdata()
+  },
 }
 </script>
