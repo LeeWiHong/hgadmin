@@ -1,11 +1,16 @@
 <template>
     <div>
-        我是UserComponent
+        <UserItem></UserItem>
     </div>
 </template>
 
 <script>
+import UserItem from '../common/UserItem'
+
 export default {
-    name:'UserComponent'
+    name:'UserComponent',
+    components:{
+        UserItem
+    }
 }
 </script>

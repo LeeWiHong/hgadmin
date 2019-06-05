@@ -42,12 +42,6 @@ const columns = [{
   key: 'createTime',
 }, 
 {
-  title: '更新资料时间',
-  dataIndex: 'updateTime',
-  key: 'updateTime',
-}, 
-
-{
   title: '操作',
   key: 'action',
   scopedSlots: { customRender: 'action' },
@@ -62,8 +56,8 @@ export default {
   },
   methods: {
     getdata(){
-           this.$http.get('api/alluser').then(response =>{
-            this.data = response.data.data
+           this.$http.get('api/alluser',{params:{pageno:1,pagesize:100}}).then(response =>{
+            this.data = response.data.data.list
            }).catch(error =>{
                console.log(error)
            })
