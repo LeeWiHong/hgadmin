@@ -1,5 +1,6 @@
 <template>
   <a-table :columns="columns" :dataSource="data">
+    <!--
     <a slot="name" slot-scope="text" href="javascript:;">{{text}}</a>
     <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
     <span slot="tags" slot-scope="tags">
@@ -14,29 +15,40 @@
         More actions <a-icon type="down" />
       </a>
     </span>
+    -->
   </a-table>
 </template>
 <script>
 const columns = [{
-  dataIndex: 'name',
-  key: 'name',
-  slots: { title: 'customTitle' },
-  scopedSlots: { customRender: 'name' },
+  title:'分类ID',
+  dataIndex: 'categoryid',
+  key: 'categoryid',
 }, {
-  title: 'Age',
-  dataIndex: 'age',
-  key: 'age',
+  title: '分类名称',
+  dataIndex: 'categoryName',
+  key: 'categoryName',
 }, {
-  title: 'Address',
-  dataIndex: 'address',
-  key: 'address',
-}, {
+  title: '分类图片',
+  dataIndex: 'categoryImage',
+  key: 'categoryImage',
+}, 
+{
+  title: '分类类型',
+  dataIndex: 'categoryType',
+  key: 'categoryType',
+}, 
+{
+  title: '分类描述',
+  dataIndex: 'description',
+  key: 'description',
+}, 
+{
   title: 'Tags',
   key: 'tags',
   dataIndex: 'tags',
   scopedSlots: { customRender: 'tags' },
 }, {
-  title: 'Action',
+  title: '操作',
   key: 'action',
   scopedSlots: { customRender: 'action' },
 }];
@@ -47,101 +59,6 @@ const data = [{
   age: 32,
   address: 'New York No. 1 Lake Park',
   tags: ['nice', 'developer'],
-}, {
-  key: '2',
-  name: 'Jim Green',
-  age: 42,
-  address: 'London No. 1 Lake Park',
-  tags: ['loser'],
-}, {
-  key: '3',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-}, 
-{
-  key: '4',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-},
-{
-  key: '5',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-}
-,
-{
-  key: '6',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-},
-{
-  key: '7',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-}
-,
-{
-  key: '8',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-}
-,
-{
-  key: '9',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-}
-,
-{
-  key: '10',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-}
-,
-{
-  key: '11',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-},
-{
-  key: '12',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-},
-{
-  key: '13',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-},
-
-{
-  key: '14',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
 }
 ];
 
