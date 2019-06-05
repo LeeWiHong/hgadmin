@@ -25,6 +25,11 @@ const columns = [{
   key: 'adviceTelephone',
 }, 
 {
+  title: '创建时间',
+  dataIndex: 'createTime',
+  key: 'createTime',
+}, 
+{
   title: '操作',
   key: 'action',
   scopedSlots: { customRender: 'action' },
