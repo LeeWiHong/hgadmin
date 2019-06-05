@@ -8,7 +8,11 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 import axios from 'axios'
 
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
 Vue.use(Antd)
+Vue.use(mavonEditor)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 axios.defaults.headers.post['Content-type'] = "application/json"
