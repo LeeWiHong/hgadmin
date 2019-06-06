@@ -1,7 +1,6 @@
 <template>
     <div>
-        我是发布视图
-        <mavon-editor v-model="value"/>
+        <mavon-editor style="z-index:1" v-model="value"/>
     </div>
 </template>
 
