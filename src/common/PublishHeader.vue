@@ -30,10 +30,9 @@ export default {
         uploadImage(){
             this.$http.post('api/uploadimage',{
                 headers: {
-                    'content-type': 'multipart/form-data',
+                    'Content-Type': 'multipart/form-data',
                     'charset':'utf-8'
                     }
-
             }).then(response =>{
             this.data = response.data.data
            }).catch(error =>{
