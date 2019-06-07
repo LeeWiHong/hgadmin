@@ -24,6 +24,17 @@ export default {
 
     methods: {
         postArticle(){
+            this.$http.get('api/addarticle',
+            {params:
+            {title:""+this.title,
+            description:""+this.description,
+            uploadimage:""+this.uploadimage,
+            bodycontent:""+this.bodycontent
+            }}).then(response=>{
+                console.log(response.data.data)
+            }).catch(error=>{
+                console.log(error)
+            })
             console.log(this.title+this.description+this.uploadimage+this.bodycontent)
         }
     },

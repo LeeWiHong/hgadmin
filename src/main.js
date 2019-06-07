@@ -18,7 +18,7 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$http = axios;
 
-// axios.defaults.headers.post['Content-type'] = "application/json"
+axios.defaults.headers.post['Content-type'] = "application/json"
 // axios.defaults.baseURL = global.baseURL
 
 
