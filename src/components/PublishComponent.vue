@@ -5,7 +5,7 @@
            
            
             <a-tree-select
-            style="width:450px"
+            style="width:500px"
             :dropdownStyle="{ maxHeight: '400px', overflow: 'auto' }"
     
             placeholder='请选择分类'
@@ -14,7 +14,16 @@
             >
             <a-tree-select-node v-for="(item, index) in CategorytreeData" :key="index" :value="item.categoryId" :title="item.categoryName"></a-tree-select-node>
             </a-tree-select>
-
+        
+        <a-tree-select
+            style="width:500px"
+            :dropdownStyle="{ maxHeight: '400px', overflow: 'auto' }"
+            placeholder='请选择平台'
+            treeDefaultExpandAll
+            v-model="platformName"
+            >
+            <a-tree-select-node v-for="(item, index) in PlatformtreeData" :key="index" :value="item.platformId" :title="item.platformName"></a-tree-select-node>
+            </a-tree-select>
 
             <a-textarea placeholder="请输入文章简要描述..." v-model:value='description' :autosize="{minRow:1,maxRows:6}"/>
             <a-textarea placeholder="请输入封面链接..." v-model:value='uploadimage' :autosize="{minRow:1,maxRows:6}"/>
@@ -26,19 +35,6 @@
 
 <script>
 
-const CategorytreeData = [{
-    categoryId: 1,
-    categoryName: 'iOS',
-    categoryImage: '/images/android.png',
-    categoryType: 1,
-    description: '安卓开发类'
-},{
-    categoryId: 2,
-    categoryName: 'android',
-    categoryImage: '/images/android.png',
-    categoryType: 1,
-    description: '安卓开发类'
-}]
 export default {
     name:'PublishComponent',
     data() {
@@ -47,14 +43,39 @@ export default {
             description:'',
             uploadimage:'',
             bodycontent:'',
-            platform:'',
-            category:'',
-            categorylist:[24,25,34,67],
-            platformlist:["baidu","juejin","tencent"],
+            platformName:'',
+            PlatformtreeData:[
+            {
+                platformId: 1,
+                platformName: '百度',
+                platformLink: 'https://baidu.com',
+                platformDescript: '百度公司',
+            },
+             {
+                platformId: 2,
+                platformName: '百度',
+                platformLink: 'https://baidu.com',
+                platformDescript: '百度公司',
+            }
+            ],
             categoryName: '',
-            CategorytreeData,
-        }
-    },
+            CategorytreeData:[
+            {
+                categoryId: 1,
+                categoryName: 'iOS',
+                categoryImage: '/images/android.png',
+                categoryType: 1,
+                description: '安卓开发类'
+                },
+                {
+                categoryId: 2,
+                categoryName: 'android',
+                categoryImage: '/images/android.png',
+                categoryType: 1,
+                description: '安卓开发类'
+                }]
+            }
+        },
 
     methods: {
         postArticle(){
@@ -74,7 +95,31 @@ export default {
 
         categoryHandleChange(value){
             console.log(value)
+        },
+
+        getAllCategoryData(){
+            this.$http.get('api/allcategory').then(response=>{
+                this.CategorytreeData = response.data.data
+            }).catch(error =>{
+                console.log(error)
+            })
+        },
+
+        getAllPlatformData(){
+            this.$http.get('api/allplatform').then(response =>{
+                this.PlatformtreeData = response.data.data
+            }).catch(error=>{
+                console.log(error)
+            })
         }
+        
+        
+
     },
+
+    mounted() {
+            this.getAllCategoryData()
+            this.getAllPlatformData()
+        },
 }
 </script>
