@@ -3,7 +3,6 @@
         <div style="display:flex;flex-direction: row;">
             <a-input placeholder="请输入标题..." v-model:value='title' ></a-input>
            
-           
             <a-tree-select
             style="width:500px"
             :dropdownStyle="{ maxHeight: '400px', overflow: 'auto' }"
@@ -12,7 +11,7 @@
             treeDefaultExpandAll
             v-model="categoryName"
             >
-            <a-tree-select-node v-for="(item, index) in CategorytreeData" :key="index" :value="item.categoryId" :title="item.categoryName"></a-tree-select-node>
+            <a-tree-select-node v-for="(item, index) in CategorytreeData" :key="index" :value="String(item.categoryId)" :title="item.categoryName"></a-tree-select-node>
             </a-tree-select>
         
         <a-tree-select
@@ -22,7 +21,7 @@
             treeDefaultExpandAll
             v-model="platformName"
             >
-            <a-tree-select-node v-for="(item, index) in PlatformtreeData" :key="index" :value="item.platformId" :title="item.platformName"></a-tree-select-node>
+            <a-tree-select-node v-for="(item, index) in PlatformtreeData" :key="index" :value="String(item.platformId)" :title="item.platformName"></a-tree-select-node>
             </a-tree-select>
 
             <a-textarea placeholder="请输入文章简要描述..." v-model:value='description' :autosize="{minRow:1,maxRows:6}"/>
@@ -44,44 +43,22 @@ export default {
             uploadimage:'',
             bodycontent:'',
             platformName:'',
-            PlatformtreeData:[
-            {
-                platformId: 1,
-                platformName: '百度',
-                platformLink: 'https://baidu.com',
-                platformDescript: '百度公司',
-            },
-             {
-                platformId: 2,
-                platformName: '百度',
-                platformLink: 'https://baidu.com',
-                platformDescript: '百度公司',
-            }
-            ],
+            platformId:'',
+            PlatformtreeData:[],
             categoryName: '',
-            CategorytreeData:[
-            {
-                categoryId: 1,
-                categoryName: 'iOS',
-                categoryImage: '/images/android.png',
-                categoryType: 1,
-                description: '安卓开发类'
-                },
-                {
-                categoryId: 2,
-                categoryName: 'android',
-                categoryImage: '/images/android.png',
-                categoryType: 1,
-                description: '安卓开发类'
-                }]
+            categoryId:'',
+            CategorytreeData:[]
             }
         },
 
     methods: {
         postArticle(){
+
             this.$http.get('api/addarticle',
             {params:
             {title:""+this.title,
+            category:""+this.categoryName,
+            platform:this.platformName,
             description:""+this.description,
             uploadimage:""+this.uploadimage,
             bodycontent:""+this.bodycontent
