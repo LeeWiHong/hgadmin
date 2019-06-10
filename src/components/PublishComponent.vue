@@ -64,6 +64,11 @@ export default {
             bodycontent:""+this.bodycontent
             }}).then(response=>{
                 console.log(response.data.data)
+                this.$message.success(response.data.msg, 3,
+                    () => {
+                        
+                    }
+                );
             }).catch(error=>{
                 console.log(error)
             })
