@@ -66,7 +66,7 @@ export default {
                 console.log(response.data.data)
                 this.$message.success(response.data.msg, 3,
                     () => {
-                        
+                        this.$router.replace('/article')
                     }
                 );
             }).catch(error=>{
