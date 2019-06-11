@@ -3,6 +3,7 @@
         <a-textarea placeholder="请输入平台名称" autosize />
         <a-textarea placeholder="请输入平台连接" autosize />
         <a-textarea placeholder="请输入平台描述" autosize />
+        <a-button type="primary" block>发布</a-button>
     </div>
 </template>
 
