@@ -59,7 +59,9 @@ export default {
             this.data = response.data.data.list
             this.total = response.data.data.total
            }).catch(error =>{
-               console.log(error)
+               this.$message.error(response.data.msg, 3,
+               () => {}
+               );
            })
        },
     deleteArticleItem(key){

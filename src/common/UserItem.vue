@@ -1,11 +1,14 @@
 <template>
-  <a-table :columns="columns" :dataSource="data">
-    <span slot="action" slot-scope="text, record">
-      <a href="javascript:;">修改</a>
-      <a-divider type="vertical" />
-      <a href="javascript:;">删除</a>
-    </span>
-  </a-table>
+  <div>
+    <a-table :columns="columns" :dataSource="data" rowKey="userId" :pagination="false">
+        <span slot="action" slot-scope="text, record">
+        <a @click="deleteUserItem(record.userId)">删除</a>
+        </span>
+    </a-table>
+    <a-pagination v-model="current" :total="total" @change="changeCurrent"></a-pagination>
+
+</div>
+  
 </template>
 <script>
 const columns = [{
@@ -52,16 +55,38 @@ export default {
     return {
       data:{},
       columns,
+      current:1,
+      total:''
     }
   },
   methods: {
+    changeCurrent(current){
+      this.current = current
+      this.getdata()
+    },
     getdata(){
-           this.$http.get('api/alluser',{params:{pageno:1,pagesize:100}}).then(response =>{
+           this.$http.get('api/alluser',{params:{pageno:this.current,pagesize:10}}).then(response =>{
             this.data = response.data.data.list
+            this.total = response.data.data.total
            }).catch(error =>{
                console.log(error)
            })
-       } 
+       },
+    deleteUserItem(key){
+      this.$http.get('api/delUser',{params:{
+        userid:key
+      }}).then(response=>{
+        this.$message.success(response.data.msg, 3,
+          () => {
+            this.getdata()
+          }
+        );
+      }).catch(error=>{
+        this.$message.error(response.data.msg, 3,
+          () => {}
+        );
+      })
+    }
   },
   created() {
     
