@@ -1,9 +1,13 @@
 <template>
-  <a-table :columns="columns" :dataSource="data" rowKey="categoryId">
-    <span slot="action" slot-scope="text, record">
-      <a @click="deleteCategoryItem(record.categoryId)">删除</a>
-    </span>
-  </a-table>
+    <div>
+      <a-table :columns="columns" :dataSource="data" rowKey="categoryId">
+          <span slot="action" slot-scope="text, record">
+          <a @click="deleteCategoryItem(record.categoryId)">删除</a>
+          </span>
+      </a-table>
+        <a-pagination v-model="current" :total="total" @change="changeCurrent"></a-pagination>
+    </div>
+  
 </template>
 <script>
 const columns = [{
@@ -39,12 +43,19 @@ export default {
     return {
       data:{},
       columns,
+      current:1,
+      total:''
     }
   },
   methods: {
+    changeCurrent(current){
+      this.current = current
+      this.getdata()
+    },
     getdata(){
-           this.$http.get('api/allcategory').then(response =>{
-            this.data = response.data.data
+           this.$http.get('api/allcategory',{params:{pageno:this.current,pagesize:10}}).then(response =>{
+            this.data = response.data.data.list
+            this.total = response.data.data.total
            }).catch(error =>{
                console.log(error)
            })
