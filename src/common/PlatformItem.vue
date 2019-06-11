@@ -1,9 +1,15 @@
 <template>
-  <a-table :columns="columns" :dataSource="data" rowKey="platformId">
-    <span slot="action" slot-scope="text, record">
-      <a @click="()=> deletePlatformItem(record.platformId)">删除</a>
-    </span>
-  </a-table>
+    <div>
+      <a-table :columns="columns" :dataSource="data" rowKey="platformId">
+          <span slot="action" slot-scope="text, record">
+           <a @click="()=> deletePlatformItem(record.platformId)">删除</a>
+          </span>
+      </a-table>
+      
+      <a-pagination v-model="current" :total="total" @change="changeCurrent"></a-pagination>
+
+    </div>
+  
 </template>
 <script>
 const columns = [{
@@ -35,14 +41,23 @@ export default {
     return {
       data:{},
       columns,
+      current:1,
+      total:''
     }
   },
   methods: {
+    changeCurrent(current){
+      this.current = current
+      this.getdata()
+    },
     getdata(){
-           this.$http.get('api/allplatform').then(response =>{
-            this.data = response.data.data
+           this.$http.get('api/allplatform',{params:{pageno:this.current,pagesize:10}}).then(response =>{
+            this.data = response.data.data.list
+            this.total = response.data.data.total
            }).catch(error =>{
-               console.log(error)
+               this.$message.error(response.data.data.msg, 3,
+                 () => {}
+               );
            })
        },
 
