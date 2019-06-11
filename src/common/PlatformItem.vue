@@ -1,6 +1,6 @@
 <template>
     <div>
-      <a-table :columns="columns" :dataSource="data" rowKey="platformId">
+      <a-table :columns="columns" :dataSource="data" rowKey="platformId" :pagination="false">
           <span slot="action" slot-scope="text, record">
            <a @click="()=> deletePlatformItem(record.platformId)">删除</a>
           </span>
