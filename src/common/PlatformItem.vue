@@ -1,9 +1,7 @@
 <template>
-  <a-table :columns="columns" :dataSource="data">
+  <a-table :columns="columns" :dataSource="data" rowKey="platformId">
     <span slot="action" slot-scope="text, record">
-      <a href="javascript:;">修改</a>
-      <a-divider type="vertical" />
-      <a href="javascript:;">删除</a>
+      <a @click="()=> deletePlatformItem(record.platformId)">删除</a>
     </span>
   </a-table>
 </template>
@@ -46,7 +44,24 @@ export default {
            }).catch(error =>{
                console.log(error)
            })
-       } 
+       },
+
+      deletePlatformItem(key){
+      console.log("我是我十点"+key)
+      this.$http.get('api/delplatform',{params:{
+        platid:key
+      }}).then(response=>{
+        this.$message.success(response.data.msg, 3,
+          () => {
+            this.getdata()
+          }
+        );
+      }).catch(error=>{
+        this.$message.error(response.data.msg, 3,
+          () => {}
+        );
+      })
+    }
   },
   created() {
     
