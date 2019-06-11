@@ -1,6 +1,6 @@
 <template>
     <div>
-      <a-table :columns="columns" :dataSource="data" rowKey="categoryId">
+      <a-table :columns="columns" :dataSource="data" rowKey="categoryId" :pagination="false">
           <span slot="action" slot-scope="text, record">
           <a @click="deleteCategoryItem(record.categoryId)">删除</a>
           </span>
