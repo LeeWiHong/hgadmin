@@ -33,10 +33,16 @@
           <a-icon type="mail" />
           <span class="nav-text">建议管理</span>
         </a-menu-item>
-        <a-menu-item key="7" @click="sideitemclick(6)">
-          <a-icon type="edit" />
-          <span class="nav-text">发布文章</span>
-        </a-menu-item>
+
+        <a-sub-menu
+          key="sub2"
+        >
+          <span slot="title"><a-icon type="edit" /><span>发布管理</span></span>
+          <a-menu-item key="7" @click="sideitemclick(6)">文章发布</a-menu-item>
+          <a-menu-item key="8">平台发布</a-menu-item>
+          <a-menu-item key="8">分类发布</a-menu-item>
+        </a-sub-menu>
+        
       </a-menu>
     </a-layout-sider>
     <a-layout>
