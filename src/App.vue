@@ -39,10 +39,10 @@
         >
           <span slot="title"><a-icon type="edit" /><span>发布管理</span></span>
           <a-menu-item key="7" @click="sideitemclick(6)">文章发布</a-menu-item>
-          <a-menu-item key="8">平台发布</a-menu-item>
-          <a-menu-item key="8">分类发布</a-menu-item>
+          <a-menu-item key="8" @click="sideitemclick(7)">平台发布</a-menu-item>
+          <a-menu-item key="9" @click="sideitemclick(8)">分类发布</a-menu-item>
         </a-sub-menu>
-        
+
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -91,7 +91,12 @@ export default {
         case 6:
             this.$router.replace('/publish')
             break;
-
+        case 7:
+            this.$router.replace('/platformpub')
+            break;
+        case 8:
+            this.$router.replace('/categorypub')
+            break;
         default:
           break;
       }

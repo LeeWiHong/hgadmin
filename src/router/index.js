@@ -7,6 +7,8 @@ import PlatformComponent from '../components/PlatformComponent.vue'
 import AdviceComponent from '../components/AdviceComponent.vue'
 import CategoryComponent from '../components/CategoryComponent.vue'
 import PublishComponent from '../components/PublishComponent.vue'
+import CategoryPublish from '../components/CategoryPublish.vue'
+import PlatformPublish from '../components/PlatformPublish.vue'
 
 Vue.use(Router)
 
@@ -46,6 +48,16 @@ export default new Router({
       path:'/publish',
       name:'PublishComponent',
       component:PublishComponent
+    },
+    {
+      path:'/categorypub',
+      name:'CategoryPublish',
+      component:CategoryPublish
+    },
+    {
+      path:'/platformpub',
+      name:'PlatformPublish',
+      component:PlatformPublish
     }
   ]
 })
