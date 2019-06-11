@@ -1,7 +1,8 @@
 <template>
-  <a-table :columns="columns" :dataSource="data">
-    <span slot="action" slot-scope="text, record">
-      <a href="javascript:;">删除</a>
+  <a-table :columns="columns" :dataSource="data" rowKey="adviceId">
+    <span slot="action"  slot-scope="text, record">
+      <!-- <a href="javascript:;">删除</a> -->
+      <a  @click="()=> deleteAdviceItem(record.adviceId)">删除</a>
     </span>
   </a-table>
 </template>
@@ -49,7 +50,24 @@ export default {
            }).catch(error =>{
                console.log(error)
            })
-       } 
+       },
+
+    deleteAdviceItem(key){
+      console.log("我是我十点"+key)
+      this.$http.get('api/deladvice',{params:{
+        adviceid:key
+      }}).then(response=>{
+        this.$message.success(response.data.msg, 3,
+          () => {
+            this.getdata()
+          }
+        );
+      }).catch(error=>{
+        this.$message.error(response.data.msg, 3,
+          () => {}
+        );
+      })
+    }
   },
   created() {
     
