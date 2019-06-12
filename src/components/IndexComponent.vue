@@ -1,16 +1,12 @@
 <template>
     <div>
-      <router-view>
-
-      </router-view>
-<!-- 
-  <a-layout id="components-layout-demo-responsive">
-    <a-layout-sider
-      breakpoint="lg"
-      collapsedWidth="0"
-      @collapse="onCollapse"
-      @breakpoint="onBreakpoint"
-    >
+        <a-layout id="components-layout-demo-responsive">
+            <a-layout-sider
+            breakpoint="lg"
+            collapsedWidth="0"
+            @collapse="onCollapse"
+            @breakpoint="onBreakpoint"
+            >
       <div class="logo" />
       <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
         <a-menu-item key="1" @click="sideitemclick(0)">
@@ -62,56 +58,53 @@
       </a-layout-footer>
     </a-layout>
   </a-layout>
-
-  -->
     </div>
 
 </template>
 <script>
 export default {
-
-  // methods: {
-  //   onCollapse(collapsed, type) {
-  //     console.log(collapsed, type);
-  //   },
-  //   onBreakpoint(broken) {
-  //     console.log(broken);
-  //   },
-  //   sideitemclick(itemindex){
-  //     console.log(itemindex)
-  //     switch (itemindex) {
-  //       case 0:
-  //         this.$router.replace('/')
-  //         break;
-  //       case 1:
-  //         this.$router.replace('/user')
-  //         break;
-  //       case 2:
-  //         this.$router.replace('/article')
-  //         break;
-  //       case 3:
-  //         this.$router.replace('/category')
-  //         break;
-  //       case 4:
-  //         this.$router.replace('/platform')
-  //         break;
-  //       case 5:
-  //         this.$router.replace('/advice')
-  //         break;
-  //       case 6:
-  //           this.$router.replace('/publish')
-  //           break;
-  //       case 7:
-  //           this.$router.replace('/platformpub')
-  //           break;
-  //       case 8:
-  //           this.$router.replace('/categorypub')
-  //           break;
-  //       default:
-  //         break;
-  //     }
-  //   }
-  // }
+  methods: {
+    onCollapse(collapsed, type) {
+      console.log(collapsed, type);
+    },
+    onBreakpoint(broken) {
+      console.log(broken);
+    },
+    sideitemclick(itemindex){
+      console.log(itemindex)
+      switch (itemindex) {
+        case 0:
+          this.$router.replace('/')
+          break;
+        case 1:
+          this.$router.replace('/user')
+          break;
+        case 2:
+          this.$router.replace('/article')
+          break;
+        case 3:
+          this.$router.replace('/category')
+          break;
+        case 4:
+          this.$router.replace('/platform')
+          break;
+        case 5:
+          this.$router.replace('/advice')
+          break;
+        case 6:
+            this.$router.replace('/publish')
+            break;
+        case 7:
+            this.$router.replace('/platformpub')
+            break;
+        case 8:
+            this.$router.replace('/categorypub')
+            break;
+        default:
+          break;
+      }
+    }
+  }
 }
 </script>
 

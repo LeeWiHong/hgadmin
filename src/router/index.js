@@ -10,6 +10,7 @@ import PublishComponent from '../components/PublishComponent.vue'
 import CategoryPublish from '../components/CategoryPublish.vue'
 import PlatformPublish from '../components/PlatformPublish.vue'
 import LoginComponent from '../components/LoginComponent.vue'
+import IndexComponent from '../components/IndexComponent.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,12 @@ export default new Router({
   routes: [
     {
       path:'/',
+      name:'IndexComponent',
+      component:IndexComponent
+    },
+
+    {
+      path:'/home',
       name:'HomeComponent',
       component:HomeComponent,
       meta:{
