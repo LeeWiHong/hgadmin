@@ -10,6 +10,8 @@ import axios from 'axios'
 
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import JsEncrypt from 'jsencrypt'
+
 
 Vue.use(Antd)
 Vue.use(mavonEditor)
@@ -17,6 +19,7 @@ Vue.use(axios)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$http = axios;
+Vue.prototype.$jsEncrypt= JsEncrypt
 
 axios.defaults.headers.post['Content-type'] = "application/json"
 // axios.defaults.baseURL = global.baseURL

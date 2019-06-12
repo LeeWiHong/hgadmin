@@ -10,7 +10,7 @@
       <a-icon v-if="password" slot="suffix" type="close-circle" @click="passwordEditEmpty" />
     </a-input>
 
-    <a-button type="primary" block @click="getLogin">登录</a-button>
+    <a-button type="primary" block @click="getPublickKey">登录</a-button>
   </div>
 </template>
 
@@ -33,16 +33,32 @@ export default {
       this.password = ''
     },
 
-    getLogin(){
-        this.$http.get('api/login').then(respoonse=>
+    getPublickKey(){
+      this.$http.get('api/getpublickey').then(response=>{
+        if (response.data.success) {
+          var publickkey = response.data.data.publickey
+          let jse = new JSEncrypt();
+          jse.setPublicKey(publickkey);
+          this.getLogin(jse.encrypt(this.password))
+        } else {
+          this.$message.error(response.data.msg, 3,
+            () => {}
+          );
+        }
+      })
+    },
+
+    getLogin(encrypassword){
+        this.$http.get('api/login',{params:{telephone:this.userName,password:encrypassword}}).then(response=>
         {
             if (response.data.success) {
                 localStorage.setItem("Flag","isLogin")
-                this.$message.success(response.data.msg, 1,
+                this.$message.success(response.data.msg, 3,
                     () => {
-                        this.$router.push("/")
+                        
                     }
                 );
+                this.$router.replace('/')
             }
             else{
                 this.$message.error(response.data.msg, 1,
