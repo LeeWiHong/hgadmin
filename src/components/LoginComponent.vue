@@ -20,7 +20,27 @@ export default {
       this.$refs.userNameInput.focus()
       this.userName = ''
     },
+
+    getLogin(){
+        this.$http.get('api/login').then(respoonse=>
+        {
+            if (response.data.success) {
+                localStorage.setItem("Flag","isLogin")
+                this.$message.success(response.data.msg, 1,
+                    () => {
+                        this.$router.push("/")
+                    }
+                );
+            }
+            else{
+                this.$message.error(response.data.msg, 1,
+                    () => {}
+                );
+            }
+        })
+    }
   },
+
 }
 </script>
 <style scoped>

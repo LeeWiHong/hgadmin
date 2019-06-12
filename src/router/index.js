@@ -9,6 +9,7 @@ import CategoryComponent from '../components/CategoryComponent.vue'
 import PublishComponent from '../components/PublishComponent.vue'
 import CategoryPublish from '../components/CategoryPublish.vue'
 import PlatformPublish from '../components/PlatformPublish.vue'
+import LoginComponent from '../components/LoginComponent.vue'
 
 Vue.use(Router)
 
@@ -17,7 +18,10 @@ export default new Router({
     {
       path:'/',
       name:'HomeComponent',
-      component:HomeComponent
+      component:HomeComponent,
+      meta:{
+        isLogin:true
+      }
     },
     {
       path:'/user',
@@ -58,6 +62,14 @@ export default new Router({
       path:'/platformpub',
       name:'PlatformPublish',
       component:PlatformPublish
+    },
+    {
+      path:'/login',
+      name:'LoginComponent',
+      component:LoginComponent,
+      meta:{
+        isLogin:false
+      }
     }
   ]
 })
