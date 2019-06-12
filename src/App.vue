@@ -104,7 +104,20 @@ export default {
           break;
       }
     }
-  }
+  },
+  mounted() {
+    console.log("cccc")
+    if (localStorage.getItem("token")) {
+      console.log("aaaa")
+      console.log("fff"+localStorage.getItem("token"))
+      this.$router.replace('/')
+    }
+    else{
+      console.log("bbbb")
+      this.$router.replace('/login')
+    }
+    
+  },
 }
 </script>
 

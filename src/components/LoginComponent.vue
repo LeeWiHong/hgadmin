@@ -52,7 +52,7 @@ export default {
         this.$http.get('api/login',{params:{telephone:this.userName,password:encrypassword}}).then(response=>
         {
             if (response.data.success) {
-                localStorage.setItem("isLogin",true)
+                localStorage.setItem("token",response.data.token)
                 this.$message.success(response.data.msg, 3,
                     () => {
                         this.$emit('jump2home')

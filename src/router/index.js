@@ -65,9 +65,6 @@ export default new Router({
       path:'/login',
       name:'LoginComponent',
       component:LoginComponent,
-      meta:{
-        isLogin:false
-      }
     }
   ]
 })
