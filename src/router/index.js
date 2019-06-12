@@ -19,7 +19,10 @@ export default new Router({
     {
       path:'/',
       name:'IndexComponent',
-      component:IndexComponent
+      component:IndexComponent,
+      meta:{
+        isLogin:true
+      }
     },
 
     {

@@ -52,7 +52,7 @@ export default {
         this.$http.get('api/login',{params:{telephone:this.userName,password:encrypassword}}).then(response=>
         {
             if (response.data.success) {
-                localStorage.setItem("Flag","isLogin")
+                localStorage.setItem("isLogin",true)
                 this.$message.success(response.data.msg, 3,
                     () => {
                         
