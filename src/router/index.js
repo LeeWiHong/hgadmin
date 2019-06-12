@@ -17,21 +17,18 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path:'/',
+      path:'/index',
       name:'IndexComponent',
       component:IndexComponent,
-      meta:{
-        isLogin:true
-      }
     },
-
+    {
+      path:'/',
+      
+    },
     {
       path:'/home',
       name:'HomeComponent',
       component:HomeComponent,
-      meta:{
-        isLogin:true
-      }
     },
     {
       path:'/user',

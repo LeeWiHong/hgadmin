@@ -55,7 +55,7 @@ export default {
                 localStorage.setItem("isLogin",true)
                 this.$message.success(response.data.msg, 3,
                     () => {
-                        
+                        this.$emit('jump2home')
                     }
                 );
                 this.$router.replace('/')
