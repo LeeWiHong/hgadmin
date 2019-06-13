@@ -17,7 +17,6 @@ Vue.use(Antd)
 Vue.use(mavonEditor)
 Vue.use(axios)
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
 Vue.prototype.$http = axios;
 Vue.prototype.$jsEncrypt= JsEncrypt
 

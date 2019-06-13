@@ -64,6 +64,7 @@ export default {
       this.current = current
       this.getdata()
     },
+
     getdata(){
            this.$http.get('api/alluser',{params:{pageno:this.current,pagesize:10}}).then(response =>{
             this.data = response.data.data.list
