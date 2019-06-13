@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     getsummarydata(){
-      this.$http.get('api/allsummary').then(response =>{
+      this.$http.get('api/allsummary',{headers:{token:localStorage.getItem("token")}}).then(response =>{
             this.data = response.data.data
            }).catch(error =>{
                console.log(error)

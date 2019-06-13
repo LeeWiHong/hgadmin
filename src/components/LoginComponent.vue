@@ -73,7 +73,7 @@ export default {
 </script>
 <style scoped>
 .components-input-demo-presuffix{
-  margin-top: 200px;
+  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
