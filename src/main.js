@@ -19,6 +19,7 @@ Vue.use(axios)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
 Vue.prototype.$jsEncrypt= JsEncrypt
+axios.defaults.headers.common['token'] = localStorage.getItem("token");
 
 axios.defaults.headers.post['Content-type'] = "application/json"
 // axios.defaults.baseURL = global.baseURL

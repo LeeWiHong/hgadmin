@@ -80,16 +80,16 @@ export default {
         },
 
         getAllCategoryData(){
-            this.$http.get('api/allcategory').then(response=>{
-                this.CategorytreeData = response.data.data
+            this.$http.get('api/allcategory',{params:{pageno:1,pagesize:1000}}).then(response=>{
+                this.CategorytreeData = response.data.data.list
             }).catch(error =>{
                 console.log(error)
             })
         },
 
         getAllPlatformData(){
-            this.$http.get('api/allplatform').then(response =>{
-                this.PlatformtreeData = response.data.data
+            this.$http.get('api/allplatform',{params:{pageno:1,pagesize:1000}}).then(response =>{
+                this.PlatformtreeData = response.data.data.list
             }).catch(error=>{
                 console.log(error)
             })

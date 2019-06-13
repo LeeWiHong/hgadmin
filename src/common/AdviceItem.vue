@@ -65,7 +65,6 @@ export default {
        },
 
     deleteAdviceItem(key){
-      console.log("我是我十点"+key)
       this.$http.get('api/deladvice',{params:{
         adviceid:key
       }}).then(response=>{
