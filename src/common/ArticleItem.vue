@@ -3,6 +3,8 @@
 <a-table :columns="columns" :dataSource="data" rowKey="articleId" :pagination="false" >
     <span slot="action" slot-scope="text, record">
       <a @click="deleteArticleItem(record.articleId)">删除</a>
+      <a-divider type="vertical"></a-divider>
+      <a @click="jump2ArticleDetail(record.articleId)">查看</a>
     </span>
   </a-table>
   <a-pagination v-model="current" :total="total" @change="changeCurrent"></a-pagination>
@@ -80,6 +82,10 @@ export default {
         );
       })
     }
+  },
+
+  jump2ArticleDetail(articleId){
+    
   },
   created() {
     

@@ -1,5 +1,17 @@
 <template>
     <div>
+
+      <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
+      <div class="logo" />
+      <a-menu
+        theme="dark"
+        mode="horizontal"
+        :style="{ lineHeight: '164px' }"
+      >
+      </a-menu>
+    </a-layout-header>
+
+
         <a-layout id="components-layout-demo-responsive">
             <a-layout-sider
             breakpoint="lg"
@@ -13,7 +25,7 @@
           <a-icon type="home" />
           <span class="nav-text">主页管理</span>
         </a-menu-item>
-       
+
         <a-menu-item key="2" @click="sideitemclick(1)">
           <a-icon type="user" />
           <span class="nav-text">用户管理</span>
@@ -116,7 +128,7 @@ export default {
       console.log("bbbb")
       this.$router.replace('/login')
     }
-    
+
   },
 }
 </script>

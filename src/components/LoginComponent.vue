@@ -19,7 +19,7 @@ export default {
     name:'LoginComponent',
     data () {
     return {
-      userName: '',
+      userName:'',
       password:''
     }
   },
@@ -83,7 +83,7 @@ export default {
   color: #ccc;
   transition: color 0.3s;
   font-size: 12px;
-  
+
 }
 .components-input-demo-presuffix .anticon-close-circle:hover {
   color: #999;

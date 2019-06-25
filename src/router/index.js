@@ -11,6 +11,7 @@ import CategoryPublish from '../components/CategoryPublish.vue'
 import PlatformPublish from '../components/PlatformPublish.vue'
 import LoginComponent from '../components/LoginComponent.vue'
 import IndexComponent from '../components/IndexComponent.vue'
+import ArticleDetailComponent from '../components/ArticleDetailComponent.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path:'/article',
       name:ArticleComponent,
       component:ArticleComponent
+    },
+    {
+      path:'/articledetail',
+      name:ArticleDetailComponent,
+      component:ArticleDetailComponent
     },
     {
       path:'/platform',
