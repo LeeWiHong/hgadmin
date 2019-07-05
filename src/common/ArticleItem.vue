@@ -57,7 +57,7 @@ export default {
       this.getdata()
     },
     getdata(){
-           this.$http.get('api/indexarticle',{params:{pageno:this.current,pagesize:10}}).then(response =>{
+           this.$http.post('api/indexarticle',{params:{pageno:this.current,pagesize:10}}).then(response =>{
             this.data = response.data.data.list
             this.total = response.data.data.total
            }).catch(error =>{
